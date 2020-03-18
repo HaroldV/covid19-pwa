@@ -1,12 +1,9 @@
-import React from 'react';  
-import { Nav, Navbar, NavbarBrand, NavItem, NavLink } from 'reactstrap';
+import React from 'react';
 
-const Header = () => (  
-    <Navbar className="bg-dark justify-content-center">
-        <NavbarBrand className="text-white">
-            COVID-19
-        </NavbarBrand>
-  </Navbar>
+const Header = () => (
+    <header>
+        <h1>COVID-19</h1>
+    </header>
 );
 
 export default Header;
