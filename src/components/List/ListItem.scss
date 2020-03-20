@@ -1,0 +1,36 @@
+.item {
+
+  .data-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .data-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 3rem;
+      }
+
+      p {
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+      
+      /*.recovered {
+        color: #FFE17D;
+      }
+      
+      .deaths {
+        color: #54596E;
+      }
+      
+      .confirmed {
+        color: #BEE86E;
+      }*/
+    }
+  }
+}
