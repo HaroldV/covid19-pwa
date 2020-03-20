@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import uuid from 'uuid/v4';
+import {v4} from 'uuid';
 import axios from 'axios';
 
 import ListItem from '../components/List/ListItem';
@@ -56,7 +56,7 @@ class List extends Component {
             <div className="container">
                 <div className="items-container">
                     {data.map(item => (
-                        <ListItem item={item} key={uuid()} />
+                        <ListItem item={item} key={v4()} />
                     ))}
                 </div>
             </div>
