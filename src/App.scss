@@ -39,7 +39,7 @@ nav {
 
 .items-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   grid-gap: 1rem;
 
   .item {
@@ -77,5 +77,11 @@ nav {
       width: 160px;
       border-radius: 50%;
     }
+  }
+}
+
+@media screen and (min-width: 460px) {
+  .items-container {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   }
 }
