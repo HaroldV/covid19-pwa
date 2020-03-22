@@ -10,6 +10,7 @@ class List extends Component {
 
     state = {
         data: [],
+        search: '',
         loading: false,
         error: '',
     };
@@ -48,17 +49,28 @@ class List extends Component {
         });
     }
 
-    render() {
-        const { data, loading } = this.state;
+    handleChange(event){
+        this.setState({
+            search: event.target.value.toLowerCase().substr(0,20)
+        })
+    }
 
+    render() {
+        const { data, loading, search } = this.state;
+        
         if (loading) {
             return (<p>Cargando...</p>);
         }
-
+        
+        let filteredCountry = data.filter((item) => item.country.toLowerCase().indexOf(search) !== -1)
+        
         return (
             <div className="container">
+                <div className="items-container row">
+                    <input type="text" value={this.state.search} onChange={this.handleChange.bind(this)} placeholder="Encontrar país" />
+                </div>
                 <div className="items-container">
-                    {data.map(item => ( <ListItem item={item} key={v4()} /> ))}
+                    {filteredCountry.map(item => ( <ListItem item={item} key={v4()} /> ))}
                 </div>
             </div>
         );
