@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import ListItemTotalCases from '../components/List/ListItemTotalCases';
+import { PAGE_TOTAL_CASES } from '../App';
+import anaPageView from '../utils/anaPageView';
 
 class ListTotalCases extends Component {
 
@@ -11,6 +13,7 @@ class ListTotalCases extends Component {
     };
 
     componentDidMount() {
+        anaPageView(PAGE_TOTAL_CASES);
 
         this.setState({
             loading: true

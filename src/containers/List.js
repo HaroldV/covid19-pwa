@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { v4 } from 'uuid';
 import axios from 'axios';
 
+import { PAGE_ALL_LOCATIONS } from '../App';
+import anaPageView from '../utils/anaPageView';
 import ListItem from '../components/List/ListItem';
 
 class List extends Component {
@@ -13,6 +15,8 @@ class List extends Component {
     };
 
     componentDidMount() {
+
+        anaPageView(PAGE_ALL_LOCATIONS);
 
         this.setState({
             loading: true

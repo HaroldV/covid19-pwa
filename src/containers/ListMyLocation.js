@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { v4 } from 'uuid';
 import axios from 'axios';
 
+import { PAGE_MY_LOCATION } from '../App';
+import anaPageView from '../utils/anaPageView';
 import ListItem from '../components/List/ListItem';
 
 const iplocation = require("iplocation").default;
@@ -16,6 +18,8 @@ class ListMyLocation extends Component {
     };
 
     componentDidMount() {
+        anaPageView(PAGE_MY_LOCATION);
+
         let myPublicIp;
 
         this.setState({
