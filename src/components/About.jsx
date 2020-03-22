@@ -25,12 +25,6 @@ const About = () => {
             profilePic: '//avatars1.githubusercontent.com/u/7153989?s=400&u=2909c70c89497497cd31de27ca770634cbcb6493&v=4',
             github: 'https://github.com/javiergomezve'
         },
-        {
-            name: 'Andrew Kish',
-            email: 'andrew@captaindashing.com',
-            profilePic: '//avatars2.githubusercontent.com/u/296624?s=400&u=c8de55e69edec4ec1b27efd866ae65f1d3d344c7&v=4',
-            github: 'https://github.com/KishCom'
-        },
     ];
 
     return(
