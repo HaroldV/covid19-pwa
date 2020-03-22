@@ -5,6 +5,7 @@ import axios from 'axios';
 import { PAGE_MY_LOCATION } from '../App';
 import anaPageView from '../utils/anaPageView';
 import ListItem from '../components/List/ListItem';
+import Spinner from '../components/Spinner/Spinner';
 
 const iplocation = require("iplocation").default;
 const publicIp = require('public-ip');
@@ -65,9 +66,8 @@ class ListMyLocation extends Component {
     render() {
         const { data, loading, myCountry } = this.state;
 
-        if (loading) {
-            return (<p>Cargando...</p>);
-        }
+        if (loading)
+            return <Spinner />;
 
         return (
             <div className="container">

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { PAGE_ALL_LOCATIONS } from '../App';
 import anaPageView from '../utils/anaPageView';
 import ListItem from '../components/List/ListItem';
+import Spinner from '../components/Spinner/Spinner';
 
 class List extends Component {
 
@@ -57,17 +58,20 @@ class List extends Component {
 
     render() {
         const { data, loading, search } = this.state;
-        
-        if (loading) {
-            return (<p>Cargando...</p>);
-        }
-        
-        let filteredCountry = data.filter((item) => item.country.toLowerCase().indexOf(search) !== -1)
+
+        let filteredCountry = data.filter((item) => item.country.toLowerCase().indexOf(search) !== -1);
+
+        if (loading)
+            return <Spinner />;
         
         return (
             <div className="container">
                 <div className="items-container row">
-                    <input type="text" value={this.state.search} onChange={this.handleChange.bind(this)} placeholder="Encontrar país" />
+                    <input
+                        type="text"
+                        placeholder="Encontrar país"
+                        value={this.state.search} onChange={this.handleChange.bind(this)}
+                    />
                 </div>
                 <div className="items-container">
                     {filteredCountry.map(item => ( <ListItem item={item} key={v4()} /> ))}

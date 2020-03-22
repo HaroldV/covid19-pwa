@@ -4,6 +4,7 @@ import axios from 'axios';
 import ListItemTotalCases from '../components/List/ListItemTotalCases';
 import { PAGE_TOTAL_CASES } from '../App';
 import anaPageView from '../utils/anaPageView';
+import Spinner from '../components/Spinner/Spinner';
 
 class ListTotalCases extends Component {
 
@@ -42,9 +43,8 @@ class ListTotalCases extends Component {
     render() {
         const { data, loading } = this.state;
     
-        if (loading) {
-            return (<p>Cargando...</p>);
-        }
+        if (loading)
+            return <Spinner />;
 
         return (
             <div className="container">                
