@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import List from './containers/List';
 import ListMyLocation from './containers/ListMyLocation.js'
 import ListTotalCases from './containers/ListTotalCases.js'
-import Nav from './components/Nav';
+import Nav from './components/Nav/Nav';
 import About from './components/About';
 
 export const PAGE_TOTAL_CASES = 'PAGE_TOTAL_CASES';
