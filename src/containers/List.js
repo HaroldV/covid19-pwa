@@ -24,18 +24,17 @@ class List extends Component {
             loading: true
         });
 
-        axios.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
+        axios.get("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
             "headers": {
                 "content-type": "application/octet-stream",
-                "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+                "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
                 "x-rapidapi-key": "85e54bdcd6msh8943a3f0529ffcep1443d7jsna18d0990f6e0"
             }, "params": {
                 "country": ""
             }
         })
         .then((response) => {
-            const listCovid19 = response.data.data.covid19Stats;
-
+            const listCovid19 = response.data.countries_stat;
             this.setState({
                 data: listCovid19,                    
                 loading: false
@@ -59,7 +58,7 @@ class List extends Component {
     render() {
         const { data, loading, search } = this.state;
 
-        let filteredCountry = data.filter((item) => item.country.toLowerCase().indexOf(search) !== -1);
+        let filteredCountry = data.filter((item) => item.country_name.toLowerCase().indexOf(search) !== -1);
 
         if (loading)
             return <Spinner />;

@@ -37,18 +37,17 @@ class ListMyLocation extends Component {
             
         })();
        
-        axios.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
+        axios.get("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", {
             "headers": {
                 "content-type": "application/octet-stream",
-                "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+                "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
                 "x-rapidapi-key": "85e54bdcd6msh8943a3f0529ffcep1443d7jsna18d0990f6e0"
             }, "params": {
                 "country": ""
             }
         })
         .then((response) => {
-            const listCovid19 = response.data.data.covid19Stats;
-
+            const listCovid19 = response.data.countries_stat;
             this.setState({
                 data: listCovid19,                    
                 loading: false
@@ -75,7 +74,7 @@ class ListMyLocation extends Component {
 
                 </div>
                 <div className="items-container">
-                    {data.map(item => myCountry === item.country ? <ListItem item={item} key={v4()} /> : '' )}
+                    {data.map(item => myCountry === item.country_name ? <ListItem item={item} key={v4()} /> : '' )}
                 </div>
             </div>
         );

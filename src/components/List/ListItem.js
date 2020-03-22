@@ -6,17 +6,13 @@ import deathsIcon from '../../assets/icons/deaths.png';
 import confirmedIcon from '../../assets/icons/confirmed.png';
 import recoveredIcon from '../../assets/icons/recovered.png';
 
-function numberWithThousands(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
 const ListItem = ({ item }) => {
 
     return (
         <div className="item">
             <div>
-                <span className="country">{item.country}</span>{' '}
-                <span className="province">{item.province}</span>
+                <span className="country">{item.country_name}</span>{' '}
+                {/* <span className="province">{item.province}</span> */}
             </div>
 
             <div className="last-update">{moment(item.lastUpdate).format('DD/MM/YYYY')}</div>
@@ -24,17 +20,17 @@ const ListItem = ({ item }) => {
             <div className="data-wrapper">
                 <div className="data-item">
                     <img src={confirmedIcon} alt="Confirmados"/>
-                    <p className="confirmed">{numberWithThousands(item.confirmed)}<br /><span className="title">Confirmados</span></p>
+                    <p className="confirmed">{item.cases}<br /><span className="title">Confirmados</span></p>
                 </div>
 
                 <div className="data-item">
                     <img src={deathsIcon} alt="Muertes"/>
-                    <p className="deaths">{numberWithThousands(item.deaths)}<br /><span className="title">Muertes</span></p>
+                    <p className="deaths">{item.deaths}<br /><span className="title">Muertes</span></p>
                 </div>
 
                 <div className="data-item">
                     <img src={recoveredIcon} alt="Recuperados"/>
-                    <p className="recovered">{numberWithThousands(item.recovered)}<br /><span className="title">Recuperados</span></p>
+                    <p className="recovered">{item.total_recovered}<br /><span className="title">Recuperados</span></p>
                 </div>
             </div>
         </div>
