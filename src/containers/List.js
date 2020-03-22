@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {v4} from 'uuid';
+import { v4 } from 'uuid';
 import axios from 'axios';
 
 import ListItem from '../components/List/ListItem';
-
 
 class List extends Component {
 
@@ -18,25 +17,25 @@ class List extends Component {
         this.setState({
             loading: true
         });
-    
+
         axios.get("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
-            "headers":{
-            "content-type":"application/octet-stream",
-            "x-rapidapi-host":"covid-19-coronavirus-statistics.p.rapidapi.com",
-            "x-rapidapi-key":"85e54bdcd6msh8943a3f0529ffcep1443d7jsna18d0990f6e0"
-            },"params":{
-            "country":""
+            "headers": {
+                "content-type": "application/octet-stream",
+                "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
+                "x-rapidapi-key": "85e54bdcd6msh8943a3f0529ffcep1443d7jsna18d0990f6e0"
+            }, "params": {
+                "country": ""
             }
         })
-        .then((response)=>{
-            const listCovid19 =  response.data.data.covid19Stats;
+        .then((response) => {
+            const listCovid19 = response.data.data.covid19Stats;
 
             this.setState({
-                data: listCovid19,
+                data: listCovid19,                    
                 loading: false
             });
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
 
             this.setState({
@@ -45,19 +44,17 @@ class List extends Component {
         });
     }
 
-    render() { 
-        const {data, loading} = this.state;
+    render() {
+        const { data, loading } = this.state;
 
         if (loading) {
             return (<p>Cargando...</p>);
         }
 
-        return(
+        return (
             <div className="container">
                 <div className="items-container">
-                    {data.map(item => (
-                        <ListItem item={item} key={v4()} />
-                    ))}
+                    {data.map(item => ( <ListItem item={item} key={v4()} /> ))}
                 </div>
             </div>
         );

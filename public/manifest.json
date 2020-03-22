@@ -1,9 +1,9 @@
 {
   "name": "InfoCovid 19",
   "short_name": "infoCovid19",
-  "theme_color": "#eb083a",
-  "background_color": "#ff5b7f",
-  "display": "browser",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",
   "start_url": "/",

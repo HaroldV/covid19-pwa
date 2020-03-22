@@ -24,17 +24,17 @@ const ListItem = ({ item }) => {
             <div className="data-wrapper">
                 <div className="data-item">
                     <img src={confirmedIcon} alt="Confirmados"/>
-                    <p className="confirmed">{numberWithThousands(item.confirmed)}</p>
+                    <p className="confirmed">{numberWithThousands(item.confirmed)}<br /><span className="title">Confirmados</span></p>
                 </div>
 
                 <div className="data-item">
                     <img src={deathsIcon} alt="Muertes"/>
-                    <p className="deaths">{numberWithThousands(item.deaths)}</p>
+                    <p className="deaths">{numberWithThousands(item.deaths)}<br /><span className="title">Muertes</span></p>
                 </div>
 
                 <div className="data-item">
                     <img src={recoveredIcon} alt="Recuperados"/>
-                    <p className="recovered">{numberWithThousands(item.recovered)}</p>
+                    <p className="recovered">{numberWithThousands(item.recovered)}<br /><span className="title">Recuperados</span></p>
                 </div>
             </div>
         </div>
