@@ -32,7 +32,7 @@ const ListItemTotalCases = ({ item }) => {
                     <p className="recovered">{item.total_recovered}<br /><span className="title">Recuperados</span></p>
                 </div>
             </div>
-            <div className="data-wrapper center">
+            <div className="data-wrapper justify-content-around">
                 <div className="data-item">
                     <img src={confirmedIcon} alt="Confirmados"/>
                     <p className="confirmed">{item.new_cases}<br /><span className="title">Nuevos Confirmados</span></p>

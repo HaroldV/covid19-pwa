@@ -11,42 +11,49 @@ const About = () => {
         anaPageView(PAGE_ABOUT);
     }, []);
 
+
+    const devs = [
+        {
+            name: 'Harold Villalobos',
+            email: 'mailto:haroldestebanvillalobos@gmail.com',
+            profilePic: '//avatars1.githubusercontent.com/u/3208972?s=400&u=1a810ac421fb7880724c7fe3b33376cda8a6194b&v=4',
+            github: 'https://github.com/HaroldV'
+        },
+        {
+            name: 'Javier Gómez',
+            email: 'javiergomezve@gmail.com',
+            profilePic: '//avatars1.githubusercontent.com/u/7153989?s=400&u=2909c70c89497497cd31de27ca770634cbcb6493&v=4',
+            github: 'https://github.com/javiergomezve'
+        },
+        {
+            name: 'Andrew Kish',
+            email: 'andrew@captaindashing.com',
+            profilePic: '//avatars2.githubusercontent.com/u/296624?s=400&u=c8de55e69edec4ec1b27efd866ae65f1d3d344c7&v=4',
+            github: 'https://github.com/KishCom'
+        },
+    ];
+
     return(
         <div className="container">
             <div className="items-container">
-                <div className="item">
-                    <div className="profile">
-                        <img className="img-profile" src="//avatars1.githubusercontent.com/u/3208972?s=400&u=1a810ac421fb7880724c7fe3b33376cda8a6194b&v=4" alt="Harold Villalobos"/>
+                {devs.map((dev, index) => (
+                    <div className="item" key={index}>
+                        <div className="profile">
+                            <img className="img-profile" src={dev.profilePic} alt={dev.name}/>
 
-                        <p className="country">Harold Villalobos</p>
+                            <p className="country">{dev.name}</p>
 
-                        <div className="contact-wrapper">
-                            <a href="mailto:haroldestebanvillalobos@gmail.com" className="github">
-                                <img src={envelope} alt="Github"/>
-                            </a>
-                            <a href="https://github.com/HaroldV" className="github">
-                                <img src={github} alt="Github"/>
-                            </a>
+                            <div className="contact-wrapper">
+                                <a href={`mailto:${dev.email}`} className="github">
+                                    <img src={envelope} alt="Github"/>
+                                </a>
+                                <a href={dev.github} className="github" target="_blank">
+                                    <img src={github} alt="Github"/>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div className="item">
-                    <div className="profile">
-                        <img className="img-profile" src="//avatars1.githubusercontent.com/u/7153989?s=400&u=2909c70c89497497cd31de27ca770634cbcb6493&v=4" alt="Javier Gómez"/>
-
-                        <p className="country">Javier Gómez</p>
-
-                        <div className="contact-wrapper">
-                            <a href="mailto:javiergomezve@gmail.com" className="github">
-                                <img src={envelope} alt="Github"/>
-                            </a>
-                            <a href="https://github.com/javiergomezve" className="github">
-                                <img src={github} alt="Github"/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );
