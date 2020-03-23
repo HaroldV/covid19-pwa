@@ -46,7 +46,12 @@ function App() {
             const myPublicIp = await publicIp.v4();
 
             await iplocation(myPublicIp, [], (error, res) => {
-                setCountry(res.country);
+                
+                if(res.country === 'United States')
+                    setCountry('USA');
+                else 
+                    setCountry(res.country);
+
             });
 
             setLoading(false);
