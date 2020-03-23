@@ -105,6 +105,12 @@ nav {
   }
 }
 
+.error {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1rem;
+}
+
 @media screen and (min-width: 460px) {
   .items-container {
     grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));

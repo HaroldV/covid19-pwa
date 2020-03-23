@@ -1,16 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-import { PAGE_ABOUT } from '../App';
-import anaPageView from '../utils/anaPageView';
 import github from '../assets/icons/github.svg';
 import envelope from '../assets/icons/envelope.svg';
 
 const About = () => {
-
-    useEffect(() => {
-        anaPageView(PAGE_ABOUT);
-    }, []);
-
 
     const devs = [
         {
@@ -41,7 +34,7 @@ const About = () => {
                                 <a href={`mailto:${dev.email}`} className="github">
                                     <img src={envelope} alt="Github"/>
                                 </a>
-                                <a href={dev.github} className="github" target="_blank">
+                                <a href={dev.github} className="github">
                                     <img src={github} alt="Github"/>
                                 </a>
                             </div>

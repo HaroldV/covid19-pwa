@@ -1,60 +1,57 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
 
-import ListItemTotalCases from '../components/List/ListItemTotalCases';
-import { PAGE_TOTAL_CASES } from '../App';
-import anaPageView from '../utils/anaPageView';
-import Spinner from '../components/Spinner/Spinner';
+import confirmedIcon from '../assets/icons/confirmed.png';
+import deathsIcon from '../assets/icons/deaths.png';
+import recoveredIcon from '../assets/icons/recovered.png';
+import numberWithThousands from '../utils/numberWithThousands';
 
-class ListTotalCases extends Component {
+const ListTotalCases = ({ data }) => {
 
-    state = {
-        data: [],
-        error: '',
-    };
+    const total_cases = data.reduce((a, b) => {
+        return a + parseFloat(b.cases.replace(',', '.'));
+    }, 0);
 
-    componentDidMount() {
-        anaPageView(PAGE_TOTAL_CASES);
+    const total_deaths = data.reduce((a, b) => {
+        return a + parseFloat(b.deaths.replace(',', '.'));
+    }, 0);
 
-        this.setState({
-            loading: true
-        });
-       
-        axios.get("https://coronavirus-monitor.p.rapidapi.com/coronavirus/worldstat.php", {
-            "headers": {
-                "content-type": "application/octet-stream",
-                "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-                "x-rapidapi-key": "85e54bdcd6msh8943a3f0529ffcep1443d7jsna18d0990f6e0"
-            },
-        }).then((response) => {
-            this.setState({
-                data: response.data,
-                loading: false
-            });
+    const total_recovered = data.reduce((a, b) => {
+        return a + parseFloat(b.total_recovered.replace(',', '.'));
+    }, 0);
 
-        }).catch((error) => {
-            console.log(error)
-            this.setState({
-                loading: false
-            });
-        });
-    }
 
-    render() {
-        const { data, loading } = this.state;
-    
-        if (loading)
-            return <Spinner />;
+    return (
+        <div className="container">
+            <div className="items-container">
+                <div className="item">
+                    <div>
+                        <span className="country">A Nivel Mundial</span>{' '}
+                    </div>
 
-        return (
-            <div className="container">                
-                <div className="items-container">
-                    <ListItemTotalCases item={data} />
+                    <div className="data-wrapper">
+                        <div className="data-item">
+                            <img src={confirmedIcon} alt="Confirmados"/>
+                            <p className="confirmed">
+                                {numberWithThousands(total_cases)}
+                                <br />
+                                <span className="title">Confirmados</span>
+                            </p>
+                        </div>
+
+                        <div className="data-item">
+                            <img src={deathsIcon} alt="Muertes"/>
+                            <p className="deaths">{numberWithThousands(total_deaths)}<br /><span className="title">Muertes</span></p>
+                        </div>
+
+                        <div className="data-item">
+                            <img src={recoveredIcon} alt="Recuperados"/>
+                            <p className="recovered">{numberWithThousands(total_recovered)}<br /><span className="title">Recuperados</span></p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        );
-    };
-
-}
+        </div>
+    );
+};
 
 export default ListTotalCases;
