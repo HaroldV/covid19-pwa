@@ -43,10 +43,12 @@ function App() {
 
             await setData(response.data.countries_stat);
 
-            const myPublicIp = await publicIp.v4();
+            let myPublicIp = await publicIp.v4();
+
+            if(!myPublicIp)
+                myPublicIp = await publicIp.v6();
 
             await iplocation(myPublicIp, [], (error, res) => {
-                
                 if(res.country === 'United States')
                     setCountry('USA');
                 else 
