@@ -12,11 +12,13 @@ import About from './components/About';
 import { getData } from './utils/api';
 import Spinner from './components/Spinner/Spinner';
 import anaPageView from './utils/anaPageView';
+import Tips from './components/Tips/Tips';
 
 export const PAGE_TOTAL_CASES = 'PAGE_TOTAL_CASES';
 export const PAGE_ALL_LOCATIONS = 'PAGE_ALL_LOCATIONS';
 export const PAGE_MY_LOCATION = 'PAGE_MY_LOCATION';
 export const PAGE_ABOUT = 'PAGE_ABOUT';
+export const PAGE_TIPS = 'PAGE_TIPS';
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -77,6 +79,10 @@ function App() {
 
             {(!error && !loading && activePage === PAGE_MY_LOCATION) &&
                 <ListMyLocation data={data} country={country} />
+            }
+
+            {(!error && !loading && activePage === PAGE_TIPS) &&
+                <Tips />
             }
 
             {(!error && !loading && activePage === PAGE_ABOUT) &&
