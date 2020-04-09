@@ -1,0 +1,55 @@
+.share {
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .a2a_kit {
+    height: 0;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      display: none;
+    }
+
+    &.active {
+      height: 180px;
+
+      a {
+        display: flex;
+      }
+    }
+  }
+
+  a {
+    margin-top: 10px;
+    background: #FF2B6A;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,1);
+    -moz-box-shadow: 0 0 5px 0 rgba(0,0,0,1);
+    box-shadow: 0 0 5px 0 rgba(0,0,0,1);
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+
+
+  .a2a_default_style a {
+    line-height: normal !important;
+  }
+}
+

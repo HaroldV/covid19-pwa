@@ -13,6 +13,7 @@ import { getData } from './utils/api';
 import Spinner from './components/Spinner/Spinner';
 import anaPageView from './utils/anaPageView';
 import Tips from './components/Tips/Tips';
+import Share from './components/Share/Share';
 
 export const PAGE_TOTAL_CASES = 'PAGE_TOTAL_CASES';
 export const PAGE_ALL_LOCATIONS = 'PAGE_ALL_LOCATIONS';
@@ -95,6 +96,8 @@ function App() {
             {(!error && !loading && activePage === PAGE_ABOUT) &&
                 <About />
             }
+
+            <Share />
         </>
     );
 }
