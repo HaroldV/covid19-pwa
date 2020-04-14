@@ -16,7 +16,11 @@ const ListItem = ({ item }) => (
             <div className="data-item">
                 <img src={confirmedIcon} alt="Confirmados"/>
                 <p className="confirmed">
-                    {numberWithThousands(item.cases)}
+                    {
+                        item.cases ==='N/A'
+                        ? 'No disponible'
+                        : numberWithThousands(item.cases)
+                    }
                     <br />
                     <span className="title">Confirmados</span>
                 </p>
@@ -25,7 +29,10 @@ const ListItem = ({ item }) => (
             <div className="data-item">
                 <img src={deathsIcon} alt="Muertes"/>
                 <p className="deaths">
-                    {numberWithThousands(item.deaths)}
+                    {item.deaths ==='N/A'
+                        ? 'No disponible'
+                        : numberWithThousands(item.deaths)
+                    }
                     <br />
                     <span className="title">Muertes</span>
                 </p>
@@ -34,7 +41,10 @@ const ListItem = ({ item }) => (
             <div className="data-item">
                 <img src={recoveredIcon} alt="Recuperados"/>
                 <p className="recovered">
-                    {numberWithThousands(item.total_recovered)}
+                    {item.total_recovered ==='N/A'
+                        ? 'No disponible'
+                        : numberWithThousands(item.total_recovered)
+                    }
                     <br />
                     <span className="title">Recuperados</span>
                 </p>

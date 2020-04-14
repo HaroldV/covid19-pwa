@@ -8,17 +8,28 @@ import numberWithThousands from '../utils/numberWithThousands';
 const ListTotalCases = ({ data }) => {
 
     const total_cases = data.reduce((a, b) => {
-        return a + parseInt(b.cases.replace(',', ''));
+        return a + parseInt(
+            (b.cases === "N/A")
+            ? 0
+            : b.cases.replace(',', '')
+        );
     }, 0);
 
     const total_deaths = data.reduce((a, b) => {
-        return a + parseInt(b.deaths.replace(',', ''));
+        return a + parseInt(
+            (b.deaths === "N/A")
+            ? 0
+            : b.deaths.replace(',', '')
+        );
     }, 0);
 
     const total_recovered = data.reduce((a, b) => {
-        return a + parseInt(b.total_recovered.replace(',', ''));
+        return a + parseInt(
+            (b.total_recovered === "N/A")
+                ? 0
+                : b.total_recovered.replace(',', '')
+        );
     }, 0);
-
 
     return (
         <div className="container">
